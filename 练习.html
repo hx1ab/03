@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="https://hx1ab.github.io/03/" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 20px;
+        color: rgb(158, 153, 158);
+        background-color: rgb(110, 97, 131);
+      }
+      .anniu {
+        height: 40px;
+        color: rgb(112, 112, 112);
+        font-weight: 800;
+        background-color: rgb(121, 224, 190);
+        border-radius: 8px;
+        border-color: rgb(25, 187, 187);
+      }
+      .biaoge {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--注释一个内容-->
+    <p>
+      <a href="">这是一个链接标签</a
+      >通过body里面的base属性设置了他的默认地址，即使这里什么也没有填写也可以跳转到制定的网址
+    </p>
+    <p>
+      <abbr title="wangtianci">wtc</abbr> abbr标签可以将一个单词用缩写来表示
+    </p>
+    <address>天赐的联系方式：***************</address>
+    <article><p>article标签记录独立于文档的重要信息</p></article>
+    <aside>
+      <p>那这个重要信息是什么呢？？？<br />aside标签要与附近内容相关</p>
+    </aside>
+    <b>b标签可以让字体变得更“cu”</b>
+    <p>
+      让我们荡起双桨 <bdo dir="rtl">让我们荡起双桨</bdo
+      ><br />bdo标签覆盖默认的文本方向，rtl代表从右到左，ltr代表从左到右
+    </p>
+    <p>
+      bockquote标签从别的网站引用一段话<br />关于天赐的个人网站<br />以下是天赐个人的个人网站的叙述
+    </p>
+    <bockquote cite=""
+      >天赐明明这么帅气，为什么没有好看的女孩子陪他玩呢？</bockquote
+    >
+    <p>
+      button标签可以弄出一个按钮<button
+        class="anniu"
+        type="button"
+        onclick="alert()"
+      >
+        看这是那个按钮</button
+      >好东西！！！！！！！！！
+    </p>
+    <p>canvas标签通过script。脚本来绘制图形。不懂才怪的反义词</p>
+    <!--<canvas></canvas>-->
+    <table border="1">
+      <caption>
+        标题
+      </caption>
+      <tr>
+        <th class="biaoge">原来</th>
+        <th class="biaoge">html</th>
+        <th class="biaoge">还可以</th>
+        <th class="biaoge">做出</th>
+        <th class="biaoge">这种</th>
+        <th class="biaoge">表格</th>
+        <th class="biaoge">的</th>
+        <th class="biaoge">啊</th>
+      </tr>
+      <tr>
+        <td class="biaoge">sadf</td>
+        <td class="biaoge">$100</td>
+        <td class="biaoge">$100</td>
+        <td class="biaoge">$100</td>
+      </tr>
+      <tr>
+        <td class="biaoge">asdf</td>
+        <td class="biaoge">$50</td>
+      </tr>
+    </table>
+    <p><cite>cite标签</cite>定义作品的标题</p>
+    <!--下面这些是短语标签-->
+    <p>em标签:呈现被强调的文本；<em>例：疫情期间</em></p>
+    <p>
+      strong标签:定义重要的文本<strong>做不完作业今天不许吃饭听到没有？</strong>
+    </p>
+    <p><code>code标签定义计算机代码文本 style=""</code></p>
+    <progress value="30" max="100"></progress>
+    <p>进度条 progress 还可以</p>
+    <progress id="progress1" value="0" max="100" class="jindutiao"></progress>
+    <button onclick="start_run(100)">下载</button>
+    <script>
+      function start_run(n) {
+        if (n == 0) {
+          alert("下载完成");
+        }
+        var progress1 = document.getElementById("progress1");
+        n = n - 1;
+        cur_task = 100 - n;
+        progress1.value = cur_task;
+        setTimeout("start_run(" + n + ")", 100);
+      }
+    </script>
+    <p>进度条动了起来，不懂====</p>
+    <meter value="3" min="0" max="10"></meter>
+    <meter value="0.55">55%</meter>
+    <p>meter拥有固定的值,不可以作为进度条</p>
+    <ol start="">
+      <li>肉丸</li>
+      <li>大肉汤</li>
+      <li>培根煎蛋</li>
+      <li>华夫饼</li>
+      <li>曼德拉草汤</li>
+      <li>蜜汁火腿</li>
+      <li>火鸡大餐</li>
+      <li>蛙腿三明治</li>
+      <li>鳗鱼料理</li>
+      <li>香蕉冰</li>
+      <li>水饺</li>
+    </ol>
+    <p>ol定义一个有序列表 li***li</p>
+    <select>
+      <optgroup label="天赐的第一个下拉列表">
+        <option value="绘画">绘画</option>
+        <option value="编程">编程</option>
+        <option value="哲学">哲学</option>
+        <option value="独立">独立</option>
+      </optgroup></select
+    ><br />
+    <from action="">
+      火腿棍:<input type="text" name="火腿棍" value="你想要吃猪肉吗？" /><br />
+      暗影:<input
+        type="text"
+        name="暗影"
+        value="你需要提供美食服务吗？？？"
+      /><br />
+      <input type="submit" value="发起进攻" />
+    </from>
+    <details>
+      <summary>你来咬我啊！</summary>
+      <p>我一周没有洗澡了呢！！！</p>
+    </details>
+    <textarea rows="20" cols="30">
+你不要过来啊啊啊啊啊啊啊 啊啊！！！！！！！！！！！！！！我的脑袋要炸掉了！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！</textarea
+    >
+    <video width="320" height="240" controls><source src="" type="" /></video>
+    <p>
+      好吧，练习就到这里了看了一圈html标签，现在脑子已经短路了。只是能记得，有那样一个标签可以添加按钮、那样一个标签可以添加表格、那样一个标签可以做出下拉菜单、那样一个标签可以显示进度条、那样一个标签可以添加视频。。。。。。。
+    </p>
+  </body>
+</html>
