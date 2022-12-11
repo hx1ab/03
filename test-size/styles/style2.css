@@ -1,0 +1,147 @@
+/*先做一个默认样式，去掉页面的外边距和内边距*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*然后我们需要把盒子还有复选框指定一个位置 这次我们自己指定吧，通过。弹性盒子吧别的还没有接触*/
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+/*把复选框隐藏掉，把背景调整一下，把标注标签样式改一下*/
+.background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(202, 182, 169);
+  z-index: -1;
+  transition: all 0.25s ease-in;
+}
+#checkbox {
+  display: none;
+}
+label {
+  position: relative;
+  background-color: rgb(216, 201, 113);
+  height: 50px;
+  width: 100px;
+  border: 5px solid rgb(185, 133, 133);
+  border-radius: 50px;
+  transition: all 0.35s ease-in;
+}
+label::before {
+  content: "";
+  height: 35px;
+  width: 35px;
+  border: 5px solid rgb(209, 144, 211);
+  border-radius: 100%;
+  top: 2.5px;
+  left: 2px;
+  background-color: rgb(212, 156, 218);
+  position: absolute;
+  transition: all 0.35s ease-in;
+  cursor: pointer;
+  animation: switch-reverse 0.35s forwards;
+}
+label::after {
+  content: "";
+  height: 7px;
+  width: 7px;
+  border-radius: 100%;
+  top: 10px;
+  left: 65px;
+  position: absolute;
+  box-shadow: 2px 1px 0 1px rgb(255, 255, 255),
+    -2px 8px 0 -1px rgb(146, 145, 145);
+  transition: all 0.35 ease-in;
+  opacity: 0;
+}
+label span {
+  display: block;
+  position: relative;
+  background-color: aliceblue;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+  top: 22px;
+  left: 70px;
+  transition: all 0.15s ease-in;
+}
+label span::before,
+label span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background-color: aliceblue;
+  border-radius: 3px;
+  transition: all 0.15s ease-in;
+}
+label span::before {
+  top: 5px;
+  left: -8px;
+}
+label span::after {
+  top: 0px;
+  left: 1px;
+}
+input:checked ~ .background {
+  background-color: rgb(108, 102, 192);
+}
+input:checked + label {
+  border-color: rgb(146, 99, 177);
+  background-color: rgb(143, 114, 190);
+}
+input:checked + label::before {
+  border-color: rgb(147, 148, 150);
+  background-color: aliceblue;
+  animation: switch 0.35s forwards;
+  cursor: pointer;
+}
+input:checked + label span {
+  width: 5px;
+  left: 20px;
+  top: 22px;
+}
+input:checked + label span::before {
+  width: 5px;
+  height: 5px;
+  top: 10px;
+  left: 6px;
+}
+input:checked + label span::after {
+  width: 5px;
+  height: 5px;
+  top: -10px;
+  left: 6px;
+}
+input:checked + label::after {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+@keyframes switch {
+  0% {
+    left: 4px;
+  }
+  60% {
+    left: 4px;
+    width: 50px;
+  }
+  100% {
+    left: 52px;
+  }
+}
+@keyframes switch-reverse {
+  0% {
+    left: 52px;
+  }
+  60% {
+    left: 30px;
+    width: 50px;
+  }
+  100% {
+    left: 4px;
+  }
+}

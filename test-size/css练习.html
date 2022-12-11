@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My CSS experiment</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!--container容器-->
+    <div class="container">
+      <!--svg矢量图形.既有大小又有方向-->
+      <svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <!--defs定义滤镜-->
+        <defs>
+          <!--filter过滤器；gooey黏糊糊的;id:1-0-0-->
+          <filter id="gooey">
+            <!--SourceGraphic源图形；stdDeviation标准偏差;blur变得模糊不清-->
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <!--hignContrastGraphic;hig对比图-->
+            <feColorMatrix
+              in="blur"
+              type="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="hignContrastGraphic"
+            />
+            <feComposite
+              in="SourceGraphic"
+              in2="highContrastGraphic"
+              operator="atop"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <button class="btn">
+        <p class="btn-title">BUTTON</p>
+        <!--bubbles泡沫；bubble泡；span行内元素，将文本的一部分独立出来-->
+        <span class="bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </span>
+      </button>
+    </div>
+  </body>
+</html>
